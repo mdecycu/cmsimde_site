@@ -17,17 +17,20 @@
 <v t="yen.20210707134934.1"><vh>202107 修改</vh>
 <v t="yen.20210710222238.1"><vh>標題特殊符號移除</vh></v>
 </v>
+<v t="leo.20221017073906.1"><vh>20221017 修改</vh></v>
 </v>
 <v t="leo.20190515144242.1"><vh>@clean wsgi.py</vh>
 <v t="leo.20190515144254.1"><vh>Declarations (wsgi.py)</vh></v>
 </v>
 <v t="leo.20190515144224.1"><vh>@clean flaskapp.py</vh>
 <v t="leo.20190515144237.1"><vh>Declarations (flaskapp.py)</vh></v>
+<v t="leo.20221017074118.1"><vh>acpForm</vh></v>
 <v t="yen.20210708085937.1"><vh>password_generator</vh></v>
 <v t="leo.20190515144237.2"><vh>checkLogin (flaskapp.py)</vh></v>
 <v t="yen.20200710111924.1"><vh>checkMath</vh></v>
 <v t="leo.20190515144237.3"><vh>delete_file (flaskapp.py)</vh></v>
 <v t="leo.20190515144237.4"><vh>doDelete (flaskapp.py)</vh></v>
+<v t="leo.20221017075812.1"><vh>doAcp</vh></v>
 <v t="leo.20190515144237.5"><vh>doSearch (flaskapp.py)</vh></v>
 <v t="leo.20190515144237.6"><vh>download (flaskapp.py)</vh></v>
 <v t="leo.20190515144237.7"><vh>download_list (flaskapp.py)</vh></v>
@@ -1987,6 +1990,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
     # under uwsgi mode no start_static and static_port anchor links
     if uwsgi != True:
         outstring += '''
+&lt;li&gt;&lt;a href="/acpform"&gt;acp&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="/start_static"&gt;start_static&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://localhost:''' + str(static_port) +'''"&gt;''' + str(static_port) + '''&lt;/a&gt;&lt;/li&gt;
 '''
@@ -2054,6 +2058,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
         # only added when user login as admin
         if uwsgi != True:
             outstring += '''
+&lt;li&gt;&lt;a href="/acpform"&gt;acp&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="/start_static"&gt;start_static&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://localhost:''' + str(static_port) +'''"&gt;''' + str(static_port) + '''&lt;/a&gt;&lt;/li&gt;
 '''
@@ -3384,6 +3389,49 @@ get_page2() 則與 get_page() 取頁面內容功能相同, 但用於將動態內
 get_page2 中的字串代換, 增加在動態與靜態網頁, 可自行擷取網站內容頁面連結
 
 尚未完成</t>
+<t tx="leo.20221017073906.1">新增 web based 執行 acp.bat</t>
+<t tx="leo.20221017074118.1">@app.route('/acpform')
+def acpform():
+    
+    """acp form routine
+    """
+    head, level, page = parse_content()
+    directory = render_menu(head, level, page)
+    if not isAdmin():
+        return set_css() + "&lt;div class='container'&gt;&lt;nav&gt;" + \
+                 directory + "&lt;/nav&gt;&lt;section&gt;&lt;h1&gt;Login&lt;/h1&gt;&lt;form method='post' action='checkLogin'&gt; \
+                Password:&lt;input type='password' name='password'&gt; \
+    &lt;input type='submit' value='login'&gt;&lt;/form&gt; \
+    &lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"
+    else:
+        return set_css() + "&lt;div class='container'&gt;&lt;nav&gt;" + \
+                 directory + "&lt;/nav&gt;&lt;section&gt;&lt;h1&gt;Acp From&lt;/h1&gt;&lt;form method='post' action='doAcp'&gt; \
+                Commit Messages:&lt;input type='text' name='commit'&gt; \
+    &lt;input type='submit' value='acp'&gt;&lt;/form&gt; \
+    &lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"</t>
+<t tx="leo.20221017075812.1">@app.route('/doAcp', methods=['POST'])
+def doAcp():
+
+    """Action to search content.htm using keyword
+    """
+
+    if not isAdmin():
+        return redirect("/login")
+    else:
+        commit_messages = request.form['commit']
+        head, level, page = parse_content()
+        directory = render_menu(head, level, page)
+        # execute acp.bat with commit_messages
+        if os.name == 'nt':
+            os.system("acp.bat " + commit_messages)
+        else:
+            os.system("source acp " + commit_messages)
+
+        return set_css() + "&lt;div class='container'&gt;&lt;nav&gt;"+ \
+                   directory + "&lt;/nav&gt;&lt;section&gt;&lt;h1&gt;Acp done&lt;/h1&gt;Acp done&lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"
+
+
+</t>
 <t tx="yen.20200710111924.1">def checkMath():
 
     """Use LaTeX Equation rendering
