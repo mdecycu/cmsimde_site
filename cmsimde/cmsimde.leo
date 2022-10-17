@@ -3423,7 +3423,7 @@ def doAcp():
         directory = render_menu(head, level, page)
         # execute acp.bat with commit_messages
         if os.name == 'nt':
-            os.system("acp.bat \"" + commit_messages + "'\"")
+            os.system("acp.bat \"" + commit_messages + "\"")
         else:
             os.system("source acp \"" + commit_messages + "\"")
 
