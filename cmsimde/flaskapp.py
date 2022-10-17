@@ -97,31 +97,14 @@ try:
 except:
     pass
 
-@app.route('/acpform')
-def acpform():
-    
-    """acp form routine
-    """
-    head, level, page = parse_content()
-    directory = render_menu(head, level, page)
-    if not isAdmin():
-        return set_css() + "<div class='container'><nav>" + \
-                 directory + "</nav><section><h1>Login</h1><form method='post' action='checkLogin'> \
-                Password:<input type='password' name='password'> \
-    <input type='submit' value='login'></form> \
-    </section></div></body></html>"
-    else:
-        return set_css() + "<div class='container'><nav>" + \
-                 directory + "</nav><section><h1>Acp From</h1><form method='post' action='doAcp'> \
-                Commit Messages:<textarea name='commit' rows='1' cols='80'></textarea> \
-    <input type='submit' value='acp'></form> \
-    </section></div></body></html>"
+
 def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
     
     """Generate random password
     """
     return ''.join(random.choice(chars) for _ in range(size))
 
+    
 # 定義 password_generator() 後就可以產生 token
 token = password_generator()
 @app.route('/checkLogin', methods=['POST'])
@@ -140,7 +123,6 @@ def checkLogin():
         return redirect('/edit_page')
     return redirect('/')
 
-
  
 def checkMath():
 
@@ -156,7 +138,19 @@ def checkMath():
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
     '''
     return outstring
-    
+
+
+def correct_url():
+
+    """get the correct url for http and https edit mode
+        to replace original request.url under set_admin_css, set_css and set_footer
+    """
+    url = request.url
+    if request.is_secure:
+        return url
+    else:
+        url = url.replace("http://", "https://", 1)
+        return url
 @app.route('/delete_file', methods=['POST'])
 def delete_file():
 
@@ -226,28 +220,6 @@ def doDelete():
     return set_css() + "<div class='container'><nav>" + \
                directory + "</nav><section><h1>Download List</h1>" + \
                outstring + "<br/><br /></body></html>"
-
-
-@app.route('/doAcp', methods=['POST'])
-def doAcp():
-
-    """Action to search content.htm using keyword
-    """
-
-    if not isAdmin():
-        return redirect("/login")
-    else:
-        commit_messages = request.form['commit']
-        head, level, page = parse_content()
-        directory = render_menu(head, level, page)
-        # execute acp.bat with commit_messages
-        if os.name == 'nt':
-            os.system("acp.bat \"" + commit_messages + "\"")
-        else:
-            os.system("./acp \"" + commit_messages + "\"")
-
-        return set_css() + "<div class='container'><nav>"+ \
-                   directory + "</nav><section><h1>Acp done</h1>Acp done</section></div></body></html>"
 
 
 @app.route('/doSearch', methods=['POST'])
@@ -434,6 +406,7 @@ def download_list():
 
     return set_css() + "<div class='container'><nav>" + \
                directory + "</nav><section><h1>Download List</h1>" + outstring + "<br/><br /></body></html>"
+
 
 def downloadlist_access_list(files, starti, endi):
     
@@ -969,6 +942,8 @@ def generate_pages():
         f.write("var tipuesearch = {\"pages\": " + str(search_content) + "};")
     # generate each page html under content directory
     return "已經將網站轉為靜態網頁. <a href='/'>Home</a>"
+
+    
 # seperate page need heading and edit variables, if edit=1, system will enter edit mode
 # single page edit will use ssavePage to save content, it means seperate save page
 @app.route('/get_page')
@@ -1767,18 +1742,25 @@ def parse_config():
     
     """Parse config
     """
-    
+    # if there is no config/config automatically generate one with content "admin"
     if not os.path.isfile(config_dir+"config"):
         # create config file if there is no config file
         # default password is admin
-        password="admin"
+        password = "admin"
         hashed_password = hashlib.sha512(password.encode('utf-8')).hexdigest()
         with open(config_dir + "config", "w", encoding="utf-8") as f:
-            f.write("siteTitle:CMSimfly \npassword:"+hashed_password)
-    config = file_get_contents(config_dir + "config")
-    config_data = config.split("\n")
-    site_title = config_data[0].split(":")[1]
-    password = config_data[1].split(":")[1]
+            f.write(hashed_password)
+
+    # if there is no config/sitetitle automatically generate one with content "cmsimde"
+    if not os.path.isfile(config_dir+"sitetitle"):
+        # default sitetitle is "cmsimde"
+        with open(config_dir + "sitetitle", "w", encoding="utf-8") as f:
+            f.write("cmsimde")
+
+    # read site_title from config/sitetitle
+    site_title = file_get_contents(config_dir + "sitetitle")
+    password = file_get_contents(config_dir + "config")
+
     return site_title, password
 
 
@@ -1922,6 +1904,7 @@ def parse_content():
     page_list.append(cut)
     return head_list, level_list, page_list
 
+
 def render_menu(head, level, page, sitemap=0):
     
     """允許使用者在 h1 標題後直接加上 h3 標題, 或者隨後納入 h4 之後作為標題標註
@@ -1977,6 +1960,8 @@ def render_menu(head, level, page, sitemap=0):
         current_level = this_level
     directory += "</li></ul>"
     return directory
+
+
 def render_menu2(head, level, page, sitemap=0):
     
     """Render menu for static site
@@ -2108,6 +2093,8 @@ def render_menu2(head, level, page, sitemap=0):
         </header>
     '''
     return directory
+
+
 def render_menu3(head, level, page, sitemap=0):
     
     """Render menu for static sitemap
@@ -2160,6 +2147,8 @@ def render_menu3(head, level, page, sitemap=0):
         current_level = this_level
     directory += "</li></ul>"
     return directory
+
+
 @app.route('/saveConfig', methods=['POST'])
 def saveConfig():
     
@@ -2184,8 +2173,14 @@ def saveConfig():
             hashed_password = old_password
         else:
             hashed_password = hashlib.sha512(password.encode('utf-8')).hexdigest()
+        # save password to config/config, sitetitle to config/sitetitle
+        # save sitetitle
+        file = open(config_dir + "sitetitle", "w", encoding="utf-8")
+        file.write(site_title)
+        file.close()
+        # save password
         file = open(config_dir + "config", "w", encoding="utf-8")
-        file.write("siteTitle:" + site_title + "\npassword:" + hashed_password)
+        file.write(hashed_password)
         file.close()
         return set_css() + "<div class='container'><nav>" + \
                  directory + "</nav><section><h1>config file saved</h1><a href='/'>Home</a></body></html>"
@@ -2346,7 +2341,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
 <li><a href="/">Home</a></li>
 <li><a href="/sitemap">SiteMap</a></li>
 <li><a href="/edit_page">Edit All</a></li>
-<li><a href="''' + str(request.url) + '''/1">Edit</a></li>
+<li><a href="''' + str(correct_url()) + '''/1">Edit</a></li>
 <li><a href="/edit_config">Config</a></li>
 <li><a href="/search_form">Search</a></li>
 <li><a href="/imageuploadform">Image Upload</a></li>
@@ -2359,7 +2354,6 @@ window.location= 'https://' + location.host + location.pathname + location.searc
     # under uwsgi mode no start_static and static_port anchor links
     if uwsgi != True:
         outstring += '''
-<li><a href="/acpform">acp</a></li>
 <li><a href="/start_static">start_static</a></li>
 <li><a href="https://localhost:''' + str(static_port) +'''">''' + str(static_port) + '''</a></li>
 '''
@@ -2384,9 +2378,11 @@ def set_css():
 
     outstring += '''
 <script src="/static/jquery.js"></script>
-<!-- for wink3 -->
+<!-- for wink3 客製化關閉-->
+<!--
 <link rel="stylesheet" type="text/css" href="/static/winkPlayer.css" />
 <script type="text/javascript" src="/static/winkPlayer.js"></script>
+-->
 <script type="text/javascript">
 $(function(){
     $("ul.topmenu> li:has(ul) > a").append('<div class="arrow-right"></div>');
@@ -2412,7 +2408,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
     if isAdmin():
         outstring += '''
 <li><a href="/edit_page">Edit All</a></li>
-<li><a href="''' + str(request.url) + '''/1">Edit</a></li>
+<li><a href="''' + str(correct_url()) + '''/1">Edit</a></li>
 <li><a href="/edit_config">Config</a></li>
 <li><a href="/search_form">Search</a></li>
 <li><a href="/imageuploadform">image upload</a></li>
@@ -2426,7 +2422,6 @@ window.location= 'https://' + location.host + location.pathname + location.searc
         # only added when user login as admin
         if uwsgi != True:
             outstring += '''
-<li><a href="/acpform">acp</a></li>
 <li><a href="/start_static">start_static</a></li>
 <li><a href="https://localhost:''' + str(static_port) +'''">''' + str(static_port) + '''</a></li>
 '''
@@ -2483,9 +2478,11 @@ def set_css2():
         <script src="tipuesearch_content.js"></script>
         <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
         <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
-        <!-- for Wink3 -->
+        <!-- for Wink3 客製化關閉 -->
+        <!--
         <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
         <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
         <script>
             /* original tipuesearch
             $(document).ready(function() {
@@ -2527,7 +2524,7 @@ def set_footer():
     
     return "<footer> \
         <a href='/edit_page'>Edit All</a>| \
-        <a href='" + str(request.url) + "/1'>Edit</a>| \
+        <a href='" + str(correct_url) + "/1'>Edit</a>| \
         <a href='edit_config'>Config</a> \
         <a href='login'>login</a>| \
         <a href='logout'>logout</a> \
@@ -2547,6 +2544,8 @@ def sitemap(edit):
     return set_css() + "<div class='container'><nav>" + directory + \
              "</nav><section><h1>Site Map</h1>" + sitemap + \
              "</section></div></body></html>"
+
+
 def sitemap2(head):
     
     """Sitemap for static content generation
@@ -2573,6 +2572,8 @@ def sizeof_fmt(num):
             return "%3.1f%s" % (num, x)
         num /= 1024.0
     return "%3.1f%s" % (num, 'TB')
+
+
 @app.route('/ssavePage', methods=['POST'])
 def ssavePage():
     
@@ -2664,6 +2665,8 @@ def start_static():
     #print(os.getcwd())
     #print(static_port + " https server started")
     httpd.serve_forever()
+
+
 def syntaxhighlight():
     
     """Return syntaxhighlight needed scripts
@@ -2705,7 +2708,6 @@ img.add_border {
 }
 </style>
 '''
-
 
 
 def syntaxhighlight2():
@@ -2958,6 +2960,8 @@ def merge_sequences(seq1,seq2):
     return res
 
 '''
+
+
 def merge_sequences(list1, list2):
     
     """Merge sequences
@@ -2999,6 +3003,8 @@ def merge_sequences(list1, list2):
             merged.insert(previous and merged.index(previous) + 1 or 0, e)
     # Return the merged list
     return merged
+
+
 # replace slash n with slash r
 def snTosr(tag):
     
