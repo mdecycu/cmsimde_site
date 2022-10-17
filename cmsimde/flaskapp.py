@@ -113,7 +113,7 @@ def acpform():
     else:
         return set_css() + "<div class='container'><nav>" + \
                  directory + "</nav><section><h1>Acp From</h1><form method='post' action='doAcp'> \
-                Commit Messages:<input type='text' size='80' maxlength='80' name='commit'> \
+                Commit Messages:<textarea name='commit' rows='1' cols='80'></textarea> \
     <input type='submit' value='acp'></form> \
     </section></div></body></html>"
 def password_generator(size=4, chars=string.ascii_lowercase + string.digits):

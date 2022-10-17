@@ -3406,7 +3406,7 @@ def acpform():
     else:
         return set_css() + "&lt;div class='container'&gt;&lt;nav&gt;" + \
                  directory + "&lt;/nav&gt;&lt;section&gt;&lt;h1&gt;Acp From&lt;/h1&gt;&lt;form method='post' action='doAcp'&gt; \
-                Commit Messages:&lt;input type='text' size='80' maxlength='80' name='commit'&gt; \
+                Commit Messages:&lt;textarea name='commit' rows='1' cols='80'&gt;&lt;/textarea&gt; \
     &lt;input type='submit' value='acp'&gt;&lt;/form&gt; \
     &lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"</t>
 <t tx="leo.20221017075812.1">@app.route('/doAcp', methods=['POST'])
