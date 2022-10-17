@@ -242,9 +242,9 @@ def doAcp():
         directory = render_menu(head, level, page)
         # execute acp.bat with commit_messages
         if os.name == 'nt':
-            os.system("acp.bat " + commit_messages)
+            os.system("acp.bat '" + commit_messages +"'")
         else:
-            os.system("source acp " + commit_messages)
+            os.system("source acp '" + commit_messages +"'")
 
         return set_css() + "<div class='container'><nav>"+ \
                    directory + "</nav><section><h1>Acp done</h1>Acp done</section></div></body></html>"
