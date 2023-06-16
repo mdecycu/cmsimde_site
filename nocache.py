@@ -1,3 +1,4 @@
+# 目前在一般 cmsimde 或 Replit 中都沒有用到此 script, 但仍保留, 且 cmsimde 目錄中與根目錄各一份
 from flask import make_response
 from functools import wraps, update_wrapper
 from datetime import datetime

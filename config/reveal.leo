@@ -12,56 +12,56 @@
 </v>
 <v t="leo.20180902120523.1"><vh>編輯 reveal</vh>
 <v t="leo.20180902120523.2"><vh>@path ./../reveal</vh>
-<v t="leo.20220314203825.1"><vh>@clean index.html</vh>
-<v t="leo.20220314203825.2"><vh>html</vh>
-<v t="leo.20220314203825.3"><vh>head</vh></v>
-<v t="leo.20220314203825.4"><vh>body</vh>
-<v t="leo.20220314203825.5"><vh>reveal div</vh>
-<v t="leo.20220314203825.6"><vh>slides div</vh>
-<v t="leo.20220314203825.7"><vh>slide 1</vh></v>
-<v t="leo.20220314203825.8"><vh>slide 2</vh></v>
-<v t="leo.20220314203825.9"><vh>slide3</vh>
-<v t="leo.20220314203825.10"><vh>slide 3-1</vh></v>
-<v t="leo.20220314203825.11"><vh>slide 3-2</vh></v>
-<v t="leo.20220314203825.12"><vh>slide 3-3</vh></v>
+<v t="leo.20220314205802.1"><vh>@clean index.html</vh>
+<v t="leo.20220314205802.2"><vh>html</vh>
+<v t="leo.20220314205802.3"><vh>head</vh></v>
+<v t="leo.20220314205802.4"><vh>body</vh>
+<v t="leo.20220314205802.5"><vh>reveal div</vh>
+<v t="leo.20220314205802.6"><vh>slides div</vh>
+<v t="leo.20220314205802.7"><vh>slide 1</vh></v>
+<v t="leo.20220314205802.8"><vh>slide 2</vh></v>
+<v t="leo.20220314205802.9"><vh>slide3</vh>
+<v t="leo.20220314205802.10"><vh>slide 3-1</vh></v>
+<v t="leo.20220314205802.11"><vh>slide 3-2</vh></v>
+<v t="leo.20220314205802.12"><vh>slide 3-3</vh></v>
 </v>
-<v t="leo.20220314203825.13"><vh>slide 4</vh></v>
-<v t="leo.20220314203825.14"><vh>slide 5 </vh></v>
-<v t="leo.20220314203825.15"><vh>slide 6</vh></v>
-<v t="leo.20220314203825.16"><vh>slide 7 </vh></v>
-<v t="leo.20220314203825.17"><vh>slide 8</vh></v>
-<v t="leo.20220314203825.18"><vh>slide 9</vh></v>
-<v t="leo.20220314203825.19"><vh>slide 10</vh></v>
-<v t="leo.20220314203825.20"><vh>slide 11</vh></v>
-<v t="leo.20220314203825.21"><vh>slide 12</vh></v>
-<v t="leo.20220314203825.22"><vh>slide 13</vh>
-<v t="leo.20220314203825.23"><vh>slide 13-1</vh></v>
-<v t="leo.20220314203825.24"><vh>slide 13-2</vh></v>
+<v t="leo.20220314205802.13"><vh>slide 4</vh></v>
+<v t="leo.20220314205802.14"><vh>slide 5 </vh></v>
+<v t="leo.20220314205802.15"><vh>slide 6</vh></v>
+<v t="leo.20220314205802.16"><vh>slide 7 </vh></v>
+<v t="leo.20220314205802.17"><vh>slide 8</vh></v>
+<v t="leo.20220314205802.18"><vh>slide 9</vh></v>
+<v t="leo.20220314205802.19"><vh>slide 10</vh></v>
+<v t="leo.20220314205802.20"><vh>slide 11</vh></v>
+<v t="leo.20220314205802.21"><vh>slide 12</vh></v>
+<v t="leo.20220314205802.22"><vh>slide 13</vh>
+<v t="leo.20220314205802.23"><vh>slide 13-1</vh></v>
+<v t="leo.20220314205802.24"><vh>slide 13-2</vh></v>
 </v>
-<v t="leo.20220314203825.25"><vh>slide 14</vh></v>
-<v t="leo.20220314203825.26"><vh>slide 15</vh></v>
-<v t="leo.20220314203825.27"><vh>slide 16</vh>
-<v t="leo.20220314203825.28"><vh>slide 16-1</vh></v>
-<v t="leo.20220314203825.29"><vh>slide 16-2</vh></v>
-<v t="leo.20220314203825.30"><vh>slide 16-3</vh></v>
-<v t="leo.20220314203825.31"><vh>slide 16-4</vh></v>
-<v t="leo.20220314203825.32"><vh>slide 16-5</vh></v>
+<v t="leo.20220314205802.25"><vh>slide 14</vh></v>
+<v t="leo.20220314205802.26"><vh>slide 15</vh></v>
+<v t="leo.20220314205802.27"><vh>slide 16</vh>
+<v t="leo.20220314205802.28"><vh>slide 16-1</vh></v>
+<v t="leo.20220314205802.29"><vh>slide 16-2</vh></v>
+<v t="leo.20220314205802.30"><vh>slide 16-3</vh></v>
+<v t="leo.20220314205802.31"><vh>slide 16-4</vh></v>
+<v t="leo.20220314205802.32"><vh>slide 16-5</vh></v>
 </v>
-<v t="leo.20220314203825.33"><vh>slide 17</vh></v>
-<v t="leo.20220314203825.34"><vh>slide 18</vh></v>
-<v t="leo.20220314203825.35"><vh>slide 19</vh></v>
-<v t="leo.20220314203825.36"><vh>slide 20</vh></v>
-<v t="leo.20220314203825.37"><vh>slide 21</vh></v>
-<v t="leo.20220314203825.38"><vh>slide 22</vh></v>
-<v t="leo.20220314203825.39"><vh>slide 23</vh></v>
-<v t="leo.20220314203825.40"><vh>slide 24</vh></v>
-<v t="leo.20220314203825.41"><vh>slide 25</vh></v>
-<v t="leo.20220314203825.42"><vh>slide 26</vh></v>
-<v t="leo.20220314203825.43"><vh>slide 27</vh></v>
-<v t="leo.20220314203825.44"><vh>slide 28</vh></v>
-<v t="leo.20220314203825.45"><vh>slide 29</vh></v>
-<v t="leo.20220314203825.46"><vh>slide 30</vh></v>
-<v t="leo.20220314203825.47"><vh>slide 31</vh></v>
+<v t="leo.20220314205802.33"><vh>slide 17</vh></v>
+<v t="leo.20220314205802.34"><vh>slide 18</vh></v>
+<v t="leo.20220314205802.35"><vh>slide 19</vh></v>
+<v t="leo.20220314205802.36"><vh>slide 20</vh></v>
+<v t="leo.20220314205802.37"><vh>slide 21</vh></v>
+<v t="leo.20220314205802.38"><vh>slide 22</vh></v>
+<v t="leo.20220314205802.39"><vh>slide 23</vh></v>
+<v t="leo.20220314205802.40"><vh>slide 24</vh></v>
+<v t="leo.20220314205802.41"><vh>slide 25</vh></v>
+<v t="leo.20220314205802.42"><vh>slide 26</vh></v>
+<v t="leo.20220314205802.43"><vh>slide 27</vh></v>
+<v t="leo.20220314205802.44"><vh>slide 28</vh></v>
+<v t="leo.20220314205802.45"><vh>slide 29</vh></v>
+<v t="leo.20220314205802.46"><vh>slide 30</vh></v>
+<v t="leo.20220314205802.47"><vh>slide 31</vh></v>
 </v>
 </v>
 </v>
@@ -149,10 +149,10 @@ QLineEdit#editorLabel {
 }</t>
 <t tx="leo.20180902120538.3">horizontal: body pane to the left
 vertical: body pane on the botton</t>
-<t tx="leo.20220314203825.1">@language xml
+<t tx="leo.20220314205802.1">@language xml
 @tabwidth -4
 @others</t>
-<t tx="leo.20220314203825.10">&lt;section&gt;
+<t tx="leo.20220314205802.10">&lt;section&gt;
     &lt;h2&gt;Vertical Slides&lt;/h2&gt;
     &lt;p&gt;Slides can be nested inside of each other.&lt;/p&gt;
     &lt;p&gt;Use the &lt;em&gt;Space&lt;/em&gt; key to navigate through all slides.&lt;/p&gt;
@@ -162,12 +162,12 @@ vertical: body pane on the botton</t>
     &lt;/a&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.11">&lt;section&gt;
+<t tx="leo.20220314205802.11">&lt;section&gt;
     &lt;h2&gt;Basement Level 1&lt;/h2&gt;
     &lt;p&gt;Nested slides are useful for adding additional detail underneath a high level horizontal slide.&lt;/p&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.12">&lt;section&gt;
+<t tx="leo.20220314205802.12">&lt;section&gt;
     &lt;h2&gt;Basement Level 2&lt;/h2&gt;
     &lt;p&gt;That's it, time to go back up.&lt;/p&gt;
     &lt;br&gt;
@@ -175,7 +175,7 @@ vertical: body pane on the botton</t>
         &lt;img class="r-frame" style="background: rgba(255,255,255,0.1); transform: rotate(180deg);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"&gt;
     &lt;/a&gt;
 &lt;/section&gt;</t>
-<t tx="leo.20220314203825.13">&lt;section&gt;
+<t tx="leo.20220314205802.13">&lt;section&gt;
     &lt;h2&gt;Slides&lt;/h2&gt;
     &lt;p&gt;
         Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at &lt;a href="https://slides.com" target="_blank"&gt;https://slides.com&lt;/a&gt;.
@@ -183,7 +183,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.14">&lt;section data-auto-animate&gt;
+<t tx="leo.20220314205802.14">&lt;section data-auto-animate&gt;
     &lt;h2 data-id="code-title"&gt;Pretty Code&lt;/h2&gt;
     &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers&gt;
         import React, { useState } from 'react';
@@ -200,7 +200,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.15">&lt;section data-auto-animate&gt;
+<t tx="leo.20220314205802.15">&lt;section data-auto-animate&gt;
     &lt;h2 data-id="code-title"&gt;With animations&lt;/h2&gt;
     &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"&gt;
         import React, { useState } from 'react';
@@ -234,7 +234,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.16">&lt;section&gt;
+<t tx="leo.20220314205802.16">&lt;section&gt;
     &lt;h2&gt;Point of View&lt;/h2&gt;
     &lt;p&gt;
         Press &lt;strong&gt;ESC&lt;/strong&gt; to enter the slide overview.
@@ -248,7 +248,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.17">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
+<t tx="leo.20220314205802.17">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
     &lt;h2&gt;Auto-Animate&lt;/h2&gt;
     &lt;p&gt;Automatically animate matching elements across slides with &lt;a href="https://revealjs.com/auto-animate/"&gt;Auto-Animate&lt;/a&gt;.&lt;/p&gt;
     &lt;div class="r-hstack justify-center"&gt;
@@ -258,7 +258,7 @@ vertical: body pane on the botton</t>
     &lt;/div&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.18">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
+<t tx="leo.20220314205802.18">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
     &lt;div class="r-hstack justify-center"&gt;
         &lt;div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"&gt;&lt;/div&gt;
         &lt;div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"&gt;&lt;/div&gt;
@@ -267,7 +267,7 @@ vertical: body pane on the botton</t>
     &lt;h2 style="margin-top: 20px;"&gt;Auto-Animate&lt;/h2&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.19">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
+<t tx="leo.20220314205802.19">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
     &lt;div class="r-stack"&gt;
         &lt;div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"&gt;&lt;/div&gt;
         &lt;div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"&gt;&lt;/div&gt;
@@ -277,11 +277,11 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.2">&lt;!doctype html&gt;
+<t tx="leo.20220314205802.2">&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 @others
 &lt;/html&gt;</t>
-<t tx="leo.20220314203825.20">&lt;section&gt;
+<t tx="leo.20220314205802.20">&lt;section&gt;
     &lt;h2&gt;Touch Optimized&lt;/h2&gt;
     &lt;p&gt;
         Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
@@ -289,7 +289,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.21">&lt;section data-markdown&gt;
+<t tx="leo.20220314205802.21">&lt;section data-markdown&gt;
     &lt;script type="text/template"&gt;
         ## Markdown support
 
@@ -308,12 +308,12 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.22">&lt;section&gt;
+<t tx="leo.20220314205802.22">&lt;section&gt;
      @others
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.23">&lt;section id="fragments"&gt;
+<t tx="leo.20220314205802.23">&lt;section id="fragments"&gt;
     &lt;h2&gt;Fragments&lt;/h2&gt;
     &lt;p&gt;Hit the next arrow...&lt;/p&gt;
     &lt;p class="fragment"&gt;... to step through ...&lt;/p&gt;
@@ -324,7 +324,7 @@ vertical: body pane on the botton</t>
     &lt;/aside&gt;
 &lt;/section&gt;
  </t>
-<t tx="leo.20220314203825.24">&lt;section&gt;
+<t tx="leo.20220314205802.24">&lt;section&gt;
     &lt;h2&gt;Fragment Styles&lt;/h2&gt;
     &lt;p&gt;There's different types of fragments, like:&lt;/p&gt;
     &lt;p class="fragment grow"&gt;grow&lt;/p&gt;
@@ -340,7 +340,7 @@ vertical: body pane on the botton</t>
     &lt;p class="fragment fade-in-then-semi-out"&gt;fade-in-then-semi-out&lt;/p&gt;
     &lt;p&gt;Highlight &lt;span class="fragment highlight-red"&gt;red&lt;/span&gt; &lt;span class="fragment highlight-blue"&gt;blue&lt;/span&gt; &lt;span class="fragment highlight-green"&gt;green&lt;/span&gt;&lt;/p&gt;
 &lt;/section&gt;</t>
-<t tx="leo.20220314203825.25">&lt;section id="transitions"&gt;
+<t tx="leo.20220314205802.25">&lt;section id="transitions"&gt;
     &lt;h2&gt;Transition Styles&lt;/h2&gt;
     &lt;p&gt;
         You can select from different transitions, like: &lt;br&gt;
@@ -354,7 +354,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.26">&lt;section id="themes"&gt;
+<t tx="leo.20220314205802.26">&lt;section id="themes"&gt;
     &lt;h2&gt;Themes&lt;/h2&gt;
     &lt;p&gt;
         reveal.js comes with a few themes built in: &lt;br&gt;
@@ -373,12 +373,12 @@ vertical: body pane on the botton</t>
     &lt;/p&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.27">&lt;section&gt;
+<t tx="leo.20220314205802.27">&lt;section&gt;
     @others
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.28">&lt;section data-background="#dddddd"&gt;
+<t tx="leo.20220314205802.28">&lt;section data-background="#dddddd"&gt;
     &lt;h2&gt;Slide Backgrounds&lt;/h2&gt;
     &lt;p&gt;
         Set &lt;code&gt;data-background="#dddddd"&lt;/code&gt; on a slide to change the background color. All CSS color formats are supported.
@@ -388,12 +388,12 @@ vertical: body pane on the botton</t>
     &lt;/a&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.29">&lt;section data-background="https://static.slid.es/reveal/image-placeholder.png"&gt;
+<t tx="leo.20220314205802.29">&lt;section data-background="https://static.slid.es/reveal/image-placeholder.png"&gt;
     &lt;h2&gt;Image Backgrounds&lt;/h2&gt;
     &lt;pre&gt;&lt;code class="hljs html"&gt;&amp;lt;section data-background="image.png"&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.3">&lt;head&gt;
+<t tx="leo.20220314205802.3">&lt;head&gt;
     &lt;meta charset="utf-8"&gt;
 
     &lt;title&gt;reveal.js – The HTML Presentation Framework&lt;/title&gt;
@@ -413,22 +413,22 @@ vertical: body pane on the botton</t>
     &lt;!-- Theme used for syntax highlighting of code --&gt;
     &lt;link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"&gt;
 &lt;/head&gt;</t>
-<t tx="leo.20220314203825.30">&lt;section data-background="https://static.slid.es/reveal/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px"&gt;
+<t tx="leo.20220314205802.30">&lt;section data-background="https://static.slid.es/reveal/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px"&gt;
     &lt;h2&gt;Tiled Backgrounds&lt;/h2&gt;
     &lt;pre&gt;&lt;code class="hljs html" style="word-wrap: break-word;"&gt;&amp;lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.31">&lt;section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4" data-background-color="#000000"&gt;
+<t tx="leo.20220314205802.31">&lt;section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4" data-background-color="#000000"&gt;
     &lt;div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;"&gt;
         &lt;h2&gt;Video Backgrounds&lt;/h2&gt;
         &lt;pre&gt;&lt;code class="hljs html" style="word-wrap: break-word;"&gt;&amp;lt;section data-background-video="video.mp4,video.webm"&amp;gt;&lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.32">&lt;section data-background="http://i.giphy.com/90F8aUepslB84.gif"&gt;
+<t tx="leo.20220314205802.32">&lt;section data-background="http://i.giphy.com/90F8aUepslB84.gif"&gt;
     &lt;h2&gt;... and GIFs!&lt;/h2&gt;
 &lt;/section&gt;</t>
-<t tx="leo.20220314203825.33">&lt;section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom"&gt;
+<t tx="leo.20220314205802.33">&lt;section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom"&gt;
     &lt;h2&gt;Background Transitions&lt;/h2&gt;
     &lt;p&gt;
         Different background transitions are available via the backgroundTransition option. This one's called "zoom".
@@ -437,7 +437,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.34">&lt;section data-transition="slide" data-background="#b5533c" data-background-transition="zoom"&gt;
+<t tx="leo.20220314205802.34">&lt;section data-transition="slide" data-background="#b5533c" data-background-transition="zoom"&gt;
     &lt;h2&gt;Background Transitions&lt;/h2&gt;
     &lt;p&gt;
         You can override background transitions per-slide.
@@ -446,7 +446,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.35">&lt;section data-background-iframe="https://hakim.se" data-background-interactive&gt;
+<t tx="leo.20220314205802.35">&lt;section data-background-iframe="https://hakim.se" data-background-interactive&gt;
     &lt;div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;"&gt;
         &lt;h2&gt;Iframe Backgrounds&lt;/h2&gt;
         &lt;p&gt;Since reveal.js runs on the web, you can easily embed other web content. Try interacting with the page in the background.&lt;/p&gt;
@@ -454,7 +454,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.36">&lt;section&gt;
+<t tx="leo.20220314205802.36">&lt;section&gt;
     &lt;h2&gt;Marvelous List&lt;/h2&gt;
     &lt;ul&gt;
         &lt;li&gt;No order here&lt;/li&gt;
@@ -465,7 +465,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.37">&lt;section&gt;
+<t tx="leo.20220314205802.37">&lt;section&gt;
     &lt;h2&gt;Fantastic Ordered List&lt;/h2&gt;
     &lt;ol&gt;
         &lt;li&gt;One is smaller than...&lt;/li&gt;
@@ -475,7 +475,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.38">&lt;section&gt;
+<t tx="leo.20220314205802.38">&lt;section&gt;
     &lt;h2&gt;Tabular Tables&lt;/h2&gt;
     &lt;table&gt;
         &lt;thead&gt;
@@ -505,7 +505,7 @@ vertical: body pane on the botton</t>
     &lt;/table&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.39">&lt;section&gt;
+<t tx="leo.20220314205802.39">&lt;section&gt;
     &lt;h2&gt;Clever Quotes&lt;/h2&gt;
     &lt;p&gt;
         These guys come in two forms, inline: &lt;q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations"&gt;The nice thing about standards is that there are so many to choose from&lt;/q&gt; and block:
@@ -516,7 +516,7 @@ vertical: body pane on the botton</t>
     &lt;/blockquote&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.4">&lt;body&gt;
+<t tx="leo.20220314205802.4">&lt;body&gt;
 @others
     &lt;script src="dist/reveal.js"&gt;&lt;/script&gt;
     &lt;script src="plugin/zoom/zoom.js"&gt;&lt;/script&gt;
@@ -540,7 +540,7 @@ vertical: body pane on the botton</t>
 
     &lt;/script&gt;
 &lt;/body&gt;</t>
-<t tx="leo.20220314203825.40">&lt;section&gt;
+<t tx="leo.20220314205802.40">&lt;section&gt;
     &lt;h2&gt;Intergalactic Interconnections&lt;/h2&gt;
     &lt;p&gt;
         You can link between slides internally,
@@ -549,7 +549,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.41">&lt;section&gt;
+<t tx="leo.20220314205802.41">&lt;section&gt;
     &lt;h2&gt;Speaker View&lt;/h2&gt;
     &lt;p&gt;There's a &lt;a href="https://revealjs.com/speaker-view/"&gt;speaker view&lt;/a&gt;. It includes a timer, preview of the upcoming slide as well as your speaker notes.&lt;/p&gt;
     &lt;p&gt;Press the &lt;em&gt;S&lt;/em&gt; key to try it out.&lt;/p&gt;
@@ -559,14 +559,14 @@ vertical: body pane on the botton</t>
     &lt;/aside&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.42">&lt;section&gt;
+<t tx="leo.20220314205802.42">&lt;section&gt;
     &lt;h2&gt;Export to PDF&lt;/h2&gt;
     &lt;p&gt;Presentations can be &lt;a href="https://revealjs.com/pdf-export/"&gt;exported to PDF&lt;/a&gt;, here's an example:&lt;/p&gt;
     &lt;iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen&gt; &lt;/iframe&gt;
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.43">&lt;section&gt;
+<t tx="leo.20220314205802.43">&lt;section&gt;
     &lt;h2&gt;Global State&lt;/h2&gt;
     &lt;p&gt;
         Set &lt;code&gt;data-state="something"&lt;/code&gt; on a slide and &lt;code&gt;"something"&lt;/code&gt;
@@ -576,7 +576,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.44">&lt;section data-state="customevent"&gt;
+<t tx="leo.20220314205802.44">&lt;section data-state="customevent"&gt;
     &lt;h2&gt;State Events&lt;/h2&gt;
     &lt;p&gt;
         Additionally custom events can be triggered on a per slide basis by binding to the &lt;code&gt;data-state&lt;/code&gt; name.
@@ -589,7 +589,7 @@ console.log( '"customevent" has fired' );
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.45">&lt;section&gt;
+<t tx="leo.20220314205802.45">&lt;section&gt;
     &lt;h2&gt;Take a Moment&lt;/h2&gt;
     &lt;p&gt;
         Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
@@ -597,7 +597,7 @@ console.log( '"customevent" has fired' );
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.46">&lt;section&gt;
+<t tx="leo.20220314205802.46">&lt;section&gt;
     &lt;h2&gt;Much more&lt;/h2&gt;
     &lt;ul&gt;
         &lt;li&gt;Right-to-left support&lt;/li&gt;
@@ -609,21 +609,21 @@ console.log( '"customevent" has fired' );
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.47">&lt;section style="text-align: left;"&gt;
+<t tx="leo.20220314205802.47">&lt;section style="text-align: left;"&gt;
     &lt;h1&gt;THE END&lt;/h1&gt;
     &lt;p&gt;
         - &lt;a href="https://slides.com"&gt;Try the online editor&lt;/a&gt; &lt;br&gt;
         - &lt;a href="https://github.com/hakimel/reveal.js"&gt;Source code &amp;amp; documentation&lt;/a&gt;
     &lt;/p&gt;
 &lt;/section&gt;</t>
-<t tx="leo.20220314203825.5">&lt;div class="reveal"&gt;
+<t tx="leo.20220314205802.5">&lt;div class="reveal"&gt;
     @others
 &lt;/div&gt;</t>
-<t tx="leo.20220314203825.6">&lt;!-- Any section element inside of this container is displayed as a slide --&gt;
+<t tx="leo.20220314205802.6">&lt;!-- Any section element inside of this container is displayed as a slide --&gt;
 &lt;div class="slides"&gt;
     @others
 &lt;/div&gt;</t>
-<t tx="leo.20220314203825.7">&lt;section&gt;
+<t tx="leo.20220314205802.7">&lt;section&gt;
     &lt;a href="https://revealjs.com"&gt;
         &lt;img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"&gt;
     &lt;/a&gt;
@@ -634,7 +634,7 @@ console.log( '"customevent" has fired' );
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.8">&lt;section&gt;
+<t tx="leo.20220314205802.8">&lt;section&gt;
     &lt;h2&gt;Hello There&lt;/h2&gt;
     &lt;p&gt;
         reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
@@ -642,7 +642,7 @@ console.log( '"customevent" has fired' );
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.9">&lt;!-- Example of nested vertical slides --&gt;
+<t tx="leo.20220314205802.9">&lt;!-- Example of nested vertical slides --&gt;
 &lt;section&gt;
     @others
 &lt;/section&gt;

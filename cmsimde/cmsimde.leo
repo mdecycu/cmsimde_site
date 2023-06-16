@@ -21,6 +21,7 @@
 <v t="leo.20220924163559.1"><vh>config/config 問題</vh></v>
 </v>
 <v t="leo.20221017090940.1"><vh>202210 修改</vh></v>
+<v t="leo.20230426202726.1"><vh>202304 註記</vh></v>
 </v>
 <v t="leo.20190515144242.1"><vh>@clean wsgi.py</vh>
 <v t="leo.20190515144254.1"><vh>Declarations (wsgi.py)</vh></v>
@@ -72,8 +73,11 @@
 <v t="leo.20190515144238.2"><vh>login (flaskapp.py)</vh></v>
 <v t="leo.20190515144238.3"><vh>logout (flaskapp.py)</vh></v>
 <v t="leo.20190515144238.4"><vh>parse_config (flaskapp.py)</vh></v>
-<v t="leo.20190515144238.5"><vh>_remove_h123_attrs (flaskapp.py)</vh></v>
-<v t="leo.20190515144238.6"><vh>parse_content (flaskapp.py)</vh></v>
+<v t="leo.20190515144238.5"><vh>_remove_h123_attrs_old (flaskapp.py)</vh></v>
+<v t="leo.20230616172601.1"><vh>_remove_h123_attrs</vh></v>
+<v t="leo.20190515144238.6"><vh>parse_content_old (flaskapp.py)</vh></v>
+<v t="leo.20230616172524.1"><vh>parse_content</vh></v>
+<v t="leo.20230616173643.1"><vh>remove_special_characters</vh></v>
 <v t="leo.20190515144238.7"><vh>render_menu (flaskapp.py)</vh></v>
 <v t="leo.20190515144238.8"><vh>render_menu2 (flaskapp.py)</vh></v>
 <v t="leo.20190515144238.9"><vh>render_menu3 (flaskapp.py)</vh></v>
@@ -115,6 +119,9 @@
 <v t="leo.20220911145040.1"><vh>@edit main.py</vh></v>
 <v t="leo.20220911145111.1"><vh>@edit nocache.py</vh></v>
 <v t="leo.20220911145241.1"><vh>@edit .gitignore</vh></v>
+</v>
+<v t="leo.20230426201753.1"><vh>@path static</vh>
+<v t="leo.20230426201801.1"><vh>@edit axuploader.js</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -389,10 +396,10 @@ def edit_page(edit):
 
 </t>
 <t tx="leo.20190515144237.13">def editorfoot():
-    
+
     """Add editor foot html
     """
-    
+
     return '''&lt;body&gt;'''
 
 
@@ -461,10 +468,10 @@ function cmsFilePicker(callback, value, meta) {
 </t>
 <t tx="leo.20190515144237.15">@app.route('/error_log')
 def error_log(self, info="Error"):
-    
+
     """ Return error log
     """
-    
+
     head, level, page = parse_content()
     directory = render_menu(head, level, page)
     return set_css() + "&lt;div class='container'&gt;&lt;nav&gt;" + \
@@ -473,10 +480,10 @@ def error_log(self, info="Error"):
 
 </t>
 <t tx="leo.20190515144237.16">def file_get_contents(filename):
-    
+
     """Return filename content
     """
-    
+
     # open file in utf-8 and return file content
     with open(filename, encoding="utf-8") as file:
         return file.read()
@@ -485,10 +492,10 @@ def error_log(self, info="Error"):
 # 與 file_selector 配合, 用於 Tinymce4 編輯器的檔案選擇
 </t>
 <t tx="leo.20190515144237.17">def file_lister(directory, type=None, page=1, item_per_page=10):
-    
+
     """Return file list
     """
-    
+
     files = os.listdir(directory)
     total_rows = len(files)
     totalpage = math.ceil(total_rows/int(item_per_page))
@@ -605,10 +612,10 @@ def error_log(self, info="Error"):
 </t>
 <t tx="leo.20190515144237.18">@app.route('/file_selector', methods=['GET'])
 def file_selector():
-    
+
     """Return file selected
     """
-    
+
     if not isAdmin():
         return redirect("/login")
     else:
@@ -638,10 +645,10 @@ def file_selector():
 
 </t>
 <t tx="leo.20190515144237.19">def file_selector_script():
-    
+
     """Return file selector Javascript
     """
-    
+
     return '''
 &lt;script language="javascript" type="text/javascript"&gt;
 $(function(){
@@ -681,10 +688,10 @@ def checkLogin():
 <t tx="leo.20190515144237.20">@app.route('/fileaxupload', methods=['POST'])
 # ajax jquery chunked file upload for flask
 def fileaxupload():
-    
+
     """Write uploaded file to server
     """
-    
+
     if isAdmin():
         # need to consider if the uploaded filename already existed.
         # right now all existed files will be replaced with the new files
@@ -705,10 +712,10 @@ def fileaxupload():
 <t tx="leo.20190515144237.21">@app.route('/fileuploadform', defaults={'edit':1})
 @app.route('/fileuploadform/&lt;path:edit&gt;')
 def fileuploadform(edit):
-    
+
     """Return file upload form html
     """
-    
+
     if isAdmin():
         head, level, page = parse_content()
         directory = render_menu(head, level, page)
@@ -718,7 +725,7 @@ def fileuploadform(edit):
 &lt;script src="/static/axuploader.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;script&gt;
 $(document).ready(function(){
-$('.prova').axuploader({url:'fileaxupload', allowExt:['jpg','png','gif','7z','pdf','zip','flv','stl','swf'],
+$('.prova').axuploader({url:'fileaxupload', allowExt:['jpg','png','gif','7z','pdf','zip','ttt','stl','txt','html','mp4'],
 finish:function(x,files)
     {
         alert('All files have been uploaded: '+files);
@@ -743,10 +750,10 @@ return 'downloads/';
 <t tx="leo.20190515144237.22">@app.route('/flvplayer')
 # 需要檢視能否取得 filepath 變數
 def flvplayer(filepath=None):
-    
+
     """Return old flv file viewer
     """
-    
+
     outstring = '''
 &lt;object type="application/x-shockwave-flash" data="''' + static_dir + '''player_flv_multi.swf" width="320" height="240"&gt;
      &lt;param name="movie" value="player_flv_multi.swf" /&gt;
@@ -835,17 +842,18 @@ def generate_pages():
         return set_css() + "&lt;div class='container'&gt;&lt;nav&gt;" + \
                      directory + "&lt;/nav&gt;&lt;section&gt;&lt;h1&gt;Generate Pages&lt;/h1&gt;" + \
                      "已經將網站轉為靜態網頁!" + \
-                     "&lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"</t>
+                     "&lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"
+</t>
 <t tx="leo.20190515144237.24"># seperate page need heading and edit variables, if edit=1, system will enter edit mode
 # single page edit will use ssavePage to save content, it means seperate save page
 @app.route('/get_page')
 @app.route('/get_page/&lt;heading&gt;', defaults={'edit': 0})
 @app.route('/get_page/&lt;heading&gt;/&lt;int:edit&gt;')
 def get_page(heading, edit):
-    
+
     """Get dynamic page content
     """
-    
+
     head, level, page = parse_content()
     directory = render_menu(head, level, page)
     if heading is None:
@@ -922,10 +930,10 @@ def get_page(heading, edit):
 </t>
 <t tx="leo.20190515144237.26">@app.route('/image_delete_file', methods=['POST'])
 def image_delete_file():
-    
+
     """Delete image file
     """
-    
+
     if not isAdmin():
         return redirect("/login")
     filename = request.form['filename']
@@ -957,10 +965,10 @@ def image_delete_file():
 </t>
 <t tx="leo.20190515144237.27">@app.route('/image_doDelete', methods=['POST'])
 def image_doDelete():
-    
+
     """Delete file action
     """
-    
+
     if not isAdmin():
         return redirect("/login")
     # delete files
@@ -993,10 +1001,10 @@ def image_doDelete():
 </t>
 <t tx="leo.20190515144237.28">@app.route('/image_list', methods=['GET'])
 def image_list():
-    
+
     """List image files
     """
-    
+
     if not isAdmin():
         return redirect("/login")
     else:
@@ -1145,10 +1153,10 @@ def image_list():
 <t tx="leo.20190515144237.29">@app.route('/imageaxupload', methods=['POST'])
 # ajax jquery chunked file upload for flask
 def imageaxupload():
-    
+
     """Write uploaded image files
     """
-    
+
     if isAdmin():
         # need to consider if the uploaded filename already existed.
         # right now all existed files will be replaced with the new files
@@ -1203,10 +1211,10 @@ def delete_file():
 
 </t>
 <t tx="leo.20190515144237.30">def imagelist_access_list(files, starti, endi):
-    
+
     """Access files of image direcroty
     """
-    
+
     # different extension files, associated links were provided
     # popup window to view images, video or STL files, other files can be downloaded directly
     # files are all the data to list, from starti to endi
@@ -1228,10 +1236,10 @@ def delete_file():
 # 與 file_selector 搭配的取影像檔程式
 </t>
 <t tx="leo.20190515144237.31">def imageselect_access_list(files, starti, endi):
-    
+
     """Access selected image file
     """
-    
+
     outstring = '''&lt;head&gt;
 &lt;style&gt;
 a.xhfbfile {padding: 0 2px 0 0; line-height: 1em;}
@@ -1268,10 +1276,10 @@ a.xhfbfile:hover{
 <t tx="leo.20190515144237.32">@app.route('/imageuploadform', defaults={'edit': 1})
 @app.route('/imageuploadform/&lt;path:edit&gt;')
 def imageuploadform(edit):
-    
+
     """Image files upload form
     """
-    
+
     if isAdmin():
         head, level, page = parse_content()
         directory = render_menu(head, level, page)
@@ -1305,10 +1313,10 @@ return 'images/';
 </t>
 <t tx="leo.20190515144237.33">@app.route('/')
 def index():
-    
+
     """Index page of dynamic site
     """
-    
+
     head, level, page = parse_content()
     # 2018.12.13, 將空白轉為"+" 號, 會導致連線錯誤, 改為直接取頁面標題
     #return redirect("/get_page/" + urllib.parse.quote_plus(head[0], encoding="utf-8"))
@@ -1344,10 +1352,10 @@ def index():
 
 </t>
 <t tx="leo.20190515144237.34">def isAdmin():
-    
+
     """Check if is adminitrator
     """
-    
+
     if session.get('admin_'+token) == 1:
             return True
     else:
@@ -1358,20 +1366,20 @@ def index():
 </t>
 <t tx="leo.20190515144237.35">@app.route('/listdir')
 def listdir():
-    
+
     """List directory content
     """
-    
+
     return download_dir + "," + config_dir
 
 
 </t>
 <t tx="leo.20190515144237.36">@app.route('/load_list')
 def load_list(item_per_page=5, page=1, filedir=None, keyword=None):
-    
+
     """Load searched files
     """
-    
+
     files = os.listdir(config_dir+filedir+"_programs/")
     if keyword is None:
         pass
@@ -1489,7 +1497,7 @@ def doDelete():
 
     """Action to delete user uploaded files
     """
-    
+
     if not isAdmin():
         return redirect("/login")
     # delete files
@@ -1523,10 +1531,10 @@ def doDelete():
 </t>
 <t tx="leo.20190515144237.5">@app.route('/doSearch', methods=['POST'])
 def doSearch():
-    
+
     """Action to search content.htm using keyword
     """
-    
+
     if not isAdmin():
         return redirect("/login")
     else:
@@ -1559,7 +1567,7 @@ def download():
     else:
     # for image files
         return send_from_directory(image_dir, filename=filename)
-    
+
 
 </t>
 <t tx="leo.20190515144237.7">@app.route('/download_list', methods=['GET'])
@@ -1583,15 +1591,15 @@ def download_list():
             item_per_page = 10
         else:
             item_per_page = request.args.get('item_per_page')
-        
+
         # only use lower case keyword to search filename
         session.pop('download_keyword', "")
-        
+
         if not request.args.get('keyword'):
             keyword = ""
         else:
             keyword = request.args.get('keyword')
-        
+
         session['download_keyword'] = keyword
         # turn all english char of the filenames into lower cases
         origFiles = os.listdir(download_dir)
@@ -1711,10 +1719,10 @@ def download_list():
 
 </t>
 <t tx="leo.20190515144237.8">def downloadlist_access_list(files, starti, endi):
-    
+
     """List files function for download_list
     """
-    
+
     # different extension files, associated links were provided
     # popup window to view images, video or STL files, other files can be downloaded directly
     # files are all the data to list, from starti to endi
@@ -1761,10 +1769,10 @@ def downloads(path):
 
 </t>
 <t tx="leo.20190515144238.1">def loadlist_access_list(files, starti, endi, filedir):
-    
+
     """Access loaded file list
     """
-    
+
     # different extension files, associated links were provided
     # popup window to view images, video or STL files, other files can be downloaded directly
     # files are all the data to list, from starti to endi
@@ -1800,10 +1808,10 @@ def downloads(path):
 </t>
 <t tx="leo.20190515144238.10">@app.route('/saveConfig', methods=['POST'])
 def saveConfig():
-    
+
     """Save Config setup file
     """
-    
+
     if not isAdmin():
         return redirect("/login")
     site_title = request.form['site_title']
@@ -1838,10 +1846,10 @@ def saveConfig():
 </t>
 <t tx="leo.20190515144238.11">@app.route('/savePage', methods=['POST'])
 def savePage():
-    
+
     """Save all pages function
     """
-    
+
     page_content = request.form['page_content']
     # when element_format : "html", need to remove the annoying comment to prevent brython exec
     page_content = page_content.replace('// &lt;![CDATA[', '')
@@ -1885,7 +1893,7 @@ for i in range(len(search_result)):
 
 </t>
 <t tx="leo.20190515144238.12">def search_content(head, page, search):
-    
+
     """Search content
     """
 
@@ -1908,10 +1916,10 @@ for i in range(len(search_result)):
 <t tx="leo.20190515144238.13">@app.route('/search_form', defaults={'edit': 1})
 @app.route('/search_form/&lt;path:edit&gt;')
 def search_form(edit):
-    
+
     """Form of keyword search
     """
-    
+
     if isAdmin():
         head, level, page = parse_content()
         directory = render_menu(head, level, page)
@@ -1929,14 +1937,11 @@ def search_form(edit):
 </t>
 <t tx="leo.20190515144238.14">@app.route('/static/&lt;path:path&gt;')
 def send_file(path):
-    
+
     """Send file function
     """
     return app.send_static_file(static_dir + path)
 
-
-# setup static directory
-#@app.route('/images/&lt;path:path&gt;')
 </t>
 <t tx="leo.20190515144238.15">@app.route('/images/&lt;path:path&gt;')
 def send_images(path):
@@ -1951,20 +1956,20 @@ def send_images(path):
 </t>
 <t tx="leo.20190515144238.16">@app.route('/static/')
 def send_static():
-    
+
     """Send static files
     """
-    
+
     return app.send_static_file('index.html')
 
 
 # set_admin_css for administrator
 </t>
 <t tx="leo.20190515144238.17">def set_admin_css():
-    
+
     """Set css for admin
     """
-    
+
     outstring = '''&lt;!doctype html&gt;
 &lt;html&gt;&lt;head&gt;
 &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
@@ -2023,9 +2028,10 @@ window.location= 'https://' + location.host + location.pathname + location.searc
 
 </t>
 <t tx="leo.20190515144238.18">def set_css():
-    
+
     """Set css for dynamic site
     """
+
     outstring = '''&lt;!doctype html&gt;
 &lt;html&gt;&lt;head&gt;
 &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
@@ -2097,10 +2103,10 @@ window.location= 'https://' + location.host + location.pathname + location.searc
 
 </t>
 <t tx="leo.20190515144238.19">def set_css2():
-    
+
     """Set css for static site
     """
-    
+
     static_head = '''
         &lt;head&gt;
         &lt;title&gt;''' + init.Init.site_title + '''&lt;/title&gt;
@@ -2180,9 +2186,10 @@ window.location= 'https://' + location.host + location.pathname + location.searc
 </t>
 <t tx="leo.20190515144238.2">@app.route('/login')
 def login():
-    
+
     """Login routine
     """
+
     head, level, page = parse_content()
     directory = render_menu(head, level, page)
     if not isAdmin():
@@ -2197,10 +2204,10 @@ def login():
 
 </t>
 <t tx="leo.20190515144238.20">def set_footer():
-    
+
     """Footer for page
     """
-    
+
     return "&lt;footer&gt; \
         &lt;a href='/edit_page'&gt;Edit All&lt;/a&gt;| \
         &lt;a href='" + str(correct_url) + "/1'&gt;Edit&lt;/a&gt;| \
@@ -2214,10 +2221,10 @@ def login():
 <t tx="leo.20190515144238.21">@app.route('/sitemap', defaults={'edit': 1})
 @app.route('/sitemap/&lt;path:edit&gt;')
 def sitemap(edit):
-    
+
     """Sitemap for dynamic site
     """
-    
+
     head, level, page = parse_content()
     directory = render_menu(head, level, page)
     sitemap = render_menu(head, level, page, sitemap=1)
@@ -2228,10 +2235,10 @@ def sitemap(edit):
 
 </t>
 <t tx="leo.20190515144238.22">def sitemap2(head):
-    
+
     """Sitemap for static content generation
     """
-    
+
     edit = 0
     not_used_head, level, page = parse_content()
     directory = render_menu2(head, level, page)
@@ -2245,10 +2252,10 @@ def sitemap(edit):
 
 </t>
 <t tx="leo.20190515144238.23">def sizeof_fmt(num):
-    
+
     """Size formate
     """
-    
+
     for x in ['bytes','KB','MB','GB']:
         if num &lt; 1024.0:
             return "%3.1f%s" % (num, x)
@@ -2259,10 +2266,10 @@ def sitemap(edit):
 </t>
 <t tx="leo.20190515144238.24">@app.route('/ssavePage', methods=['POST'])
 def ssavePage():
-    
+
     """Seperate save page function
     """
-    
+
     page_content = request.form['page_content']
     # add an action for submit general save or collaborative csave
     # default value for action is "save", this is for editor menu Save button
@@ -2336,10 +2343,10 @@ def ssavePage():
 
 </t>
 <t tx="leo.20190515144238.25">def syntaxhighlight():
-    
+
     """Return syntaxhighlight needed scripts
     """
-    
+
     return '''
 &lt;script type="text/javascript" src="/static/syntaxhighlighter/shCore.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="/static/syntaxhighlighter/shBrushBash.js"&gt;&lt;/script&gt;
@@ -2380,10 +2387,10 @@ img.add_border {
 
 </t>
 <t tx="leo.20190515144238.26">def syntaxhighlight2():
-    
+
     """Return syntaxhighlight for static pages
     """
-    
+
     return '''
 &lt;script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"&gt;&lt;/script&gt;
@@ -2424,10 +2431,10 @@ img.add_border {
 
 </t>
 <t tx="leo.20190515144238.27">def tinymce_editor(menu_input=None, editor_content=None, page_order=None):
-    
+
     """Tinymce editor scripts
     """
-    
+
     sitecontent =file_get_contents(config_dir + "content.htm")
     editor = set_admin_css() + editorhead() + '''&lt;/head&gt;''' + editorfoot()
     # edit all pages
@@ -2553,37 +2560,34 @@ img.add_border {
         }
         
         function save_data(form) {
-                var page_content = $('textarea#page_content').val();
-                var page_order = $('#page_order').val();
-                
-                $.ajax({
-                    type: "POST",
-                    url: "/ssavePage",
-                    data: {"page_content": page_content, "page_order": page_order, "action": action},
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        alert(XMLHttpRequest.status);
-                        alert(XMLHttpRequest.readyState);
-                        alert(textStatus);
-                    },
-                    success: function() {
-                        //document.getElementById("notice").innerHTML = "saved!";
-                        parser = new DOMParser();
-                        parsed = parser.parseFromString(page_content, 'text/html');
-                        paragraphs = parsed.querySelectorAll('h1, h2, h3');
-                        //alert(paragraphs.length)
-                        //tempAlert("saved!", 700);
+            var page_content = $('textarea#page_content').val();
+            var page_order = $('#page_order').val();
 
-                        if (paragraphs.length &gt; 1 || paragraphs.length == 0 )
-                        {
-                            //window.location.reload();
-                            document.location.href="/";
-                        }
-                        else
-                        {
-                            tempAlert("saved!", 700);
-                        }
+            $.ajax({
+                type: "POST",
+                url: "/ssavePage",
+                data: {"page_content": page_content, "page_order": page_order, "action": action},
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                },
+                success: function() {
+                    parser = new DOMParser();
+                    parsed = parser.parseFromString(page_content, 'text/html');
+                    paragraphs = parsed.querySelectorAll('h1, h2, h3');
+
+                    var prevContent = localStorage.getItem('prevContent');  // Get the previously saved content from local storage
+                    var currentContent = paragraphs.length &gt; 0 ? paragraphs[0].textContent.trim() : '';  // Get the current content from the first header tag
+
+                    if (currentContent !== prevContent) {  // Compare the current and previous content
+                        localStorage.setItem('prevContent', currentContent);  // Update the previous content in local storage
+                        document.location.href = "/";  // Reload the page
+                    } else {
+                        tempAlert("saved!", 700);
                     }
-                 }); 
+                }
+            });
         }
         &lt;/script&gt;
         """
@@ -2594,10 +2598,10 @@ img.add_border {
     
 </t>
 <t tx="leo.20190515144238.28">def unique(items):
-    
+
     """Make items element unique
     """
-    
+
     found = set([])
     keep = []
     count = {}
@@ -2615,10 +2619,10 @@ img.add_border {
 </t>
 <t tx="leo.20190515144238.3">@app.route('/logout')
 def logout():
-    
+
     """Logout routine
     """
-    
+
     session.pop('admin_'+token , None)
     flash('已經登出!')
     return redirect(url_for('login'))
@@ -2626,9 +2630,10 @@ def logout():
 
 </t>
 <t tx="leo.20190515144238.4">def parse_config():
-    
+
     """Parse config
     """
+
     # if there is no config/config automatically generate one with content "admin"
     if not os.path.isfile(config_dir+"config"):
         # create config file if there is no config file
@@ -2652,11 +2657,11 @@ def logout():
 
 
 </t>
-<t tx="leo.20190515144238.5">def _remove_h123_attrs(soup):
-    
+<t tx="leo.20190515144238.5">def _remove_h123_attrs_old(soup):
+
     """Remove h1-h3 tag attribute
     """
-    
+
     tag_order = 0
     for tag in soup.find_all(['h1', 'h2', 'h3']):
         # 假如標註內容沒有字串
@@ -2706,11 +2711,11 @@ def logout():
     return soup
 
 </t>
-<t tx="leo.20190515144238.6">def parse_content():
-    
+<t tx="leo.20190515144238.6">def parse_content_old():
+
     """Use bs4 and re module functions to parse content.htm
     """
-    
+
     #from pybean import Store, SQLiteWriter
     # if no content.db, create database file with cms table
     '''
@@ -2796,10 +2801,10 @@ def logout():
 
 </t>
 <t tx="leo.20190515144238.7">def render_menu(head, level, page, sitemap=0):
-    
+
     """允許使用者在 h1 標題後直接加上 h3 標題, 或者隨後納入 h4 之後作為標題標註
      """
-    
+
     directory = ""
     # 從 level 數列第一個元素作為開端
     current_level = level[0]
@@ -2854,10 +2859,10 @@ def logout():
 
 </t>
 <t tx="leo.20190515144238.8">def render_menu2(head, level, page, sitemap=0):
-    
+
     """Render menu for static site
     """
-    
+
     site_title, password = parse_config()
     directory = '''
     &lt;div class="site-wrap"&gt;
@@ -2988,10 +2993,10 @@ def logout():
 
 </t>
 <t tx="leo.20190515144238.9">def render_menu3(head, level, page, sitemap=0):
-    
+
     """Render menu for static sitemap
     """
-    
+
     directory = ""
     current_level = level[0]
     if sitemap:
@@ -3328,10 +3333,10 @@ def merge_sequences(seq1,seq2):
 
 
 def merge_sequences(list1, list2):
-    
+
     """Merge sequences
     """
-    
+
     # Exit if list2 is empty
     if not len(list2):
         return list1
@@ -3373,10 +3378,10 @@ def merge_sequences(list1, list2):
 </t>
 <t tx="leo.20201127112439.1"># replace slash n with slash r
 def snTosr(tag):
-    
+
     """Replace slash n with slash r
     """
-    
+
     tagStr = str(tag)
     # 只要編輯區標註有跳行內容者, 都需要轉換跳行符號
     if tag.name in ["pre", "script"]:
@@ -3460,7 +3465,8 @@ http_server.serve_forever()</t>
         return url
     else:
         url = url.replace("http://", "https://", 1)
-        return url</t>
+        return url
+</t>
 <t tx="leo.20221017090913.1">@app.route('/acpform')
 def acpform():
     
@@ -3479,11 +3485,12 @@ def acpform():
                  directory + "&lt;/nav&gt;&lt;section&gt;&lt;h1&gt;Acp From&lt;/h1&gt;&lt;form method='post' action='doAcp'&gt; \
                 Commit Messages:&lt;textarea name='commit' rows='1' cols='80'&gt;&lt;/textarea&gt; \
     &lt;input type='submit' value='acp'&gt;&lt;/form&gt; \
-    &lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"</t>
+    &lt;/section&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"
+</t>
 <t tx="leo.20221017090933.1">@app.route('/doAcp', methods=['POST'])
 def doAcp():
 
-    """Action to search content.htm using keyword
+    """Action to execute actForm inputs
     """
 
     if not isAdmin():
@@ -3506,6 +3513,126 @@ def doAcp():
 
 </t>
 <t tx="leo.20221017090940.1">add acpForm and doAcp</t>
+<t tx="leo.20230426201753.1"></t>
+<t tx="leo.20230426202726.1">$(function() {
+	//dosomething
+});
+
+ 即為:
+ 
+ $(document).ready(function(){
+    //something
+});
+
+表示在 DOM tree 載入完成後再執行方法, 但是不會回傳 jQuery 物件.
+
+(function($){
+    //something
+})(jQuery);
+
+用在 jQuery plugin，實際上是執行了一個匿名的 function 並回傳 jQuery 物件，當 jQuery 載入完成後便會開始執行，但無法操作 DOM tree.
+
+jQuery AXuploader.js 是一個使用 jQuery 實現的檔案上傳 plugin。下面是該 plugin 的主要程式架構：
+
+    定義了一個 jQuery 的方法 axuploader()，用於初始化檔案上傳功能。
+    在方法內部，使用了一個自定義的選項對象來配置上傳功能的一些參數，例如上傳的目標 URL、上傳的方式、上傳的最大檔案大小等等。
+    當用戶選擇了要上傳的檔案後，使用 AJAX 技術向伺服器端發送一個 POST 請求，並將選中的檔案作為該請求的內容。
+    在發送請求的過程中，通過定義一系列的回調函數，對請求的不同階段進行處理，例如在開始上傳時顯示一個進度條，在上傳成功時顯示一個提示框等等。
+    最後，在插件的內部，使用了一個封裝了 AJAX 的函數，用於向伺服器端發送上傳請求，並處理伺服器端返回的數據。
+
+總體而言，jQuery AXuploader.js 的程式架構比較清晰，使用了常見的 jQuery 和 AJAX 技術，同時對上傳過程中的各個階段都做了良好的處理，使得整個上傳過程變得更加穩定和易用。</t>
+<t tx="leo.20230616172524.1">def parse_content():
+    """
+    Use bs4 and re module functions to parse content.htm
+    """
+
+    content_path = os.path.join(config_dir, "content.htm")
+    if not os.path.isfile(content_path):
+        return "Error: no content.htm"
+
+    with open(content_path, "r", encoding="utf-8") as f:
+        subject = f.read()
+
+    if not subject:
+        return "Error: no data in content.htm"
+
+    soup = bs4.BeautifulSoup(subject, 'html.parser')
+    soup = _remove_h123_attrs(soup)  # Assuming this function removes attributes from h1, h2, h3 tags
+
+    with open(content_path, "w", encoding="utf-8") as f:
+        f.write(soup.prettify())  # Rewrite modified HTML back to content.htm
+
+    htags = soup.find_all(['h1', 'h2', 'h3'])  # Find all h1, h2, h3 tags in the modified soup
+
+    head_list = []  # List to store header texts
+    level_list = []  # List to store header levels
+    page_list = []  # List to store page contents
+
+    if htags:
+        subject = str(soup)  # Convert the modified soup back to a string
+        for i in range(len(htags) - 1):
+            # Remove special characters from the header text
+            header_text = remove_special_characters(htags[i].text.strip())
+            head_list.append(header_text)  # Append the modified header text
+            level_list.append(htags[i].name[1])  # Extract and append the level of the header (h1, h2, h3)
+            start_index = subject.find(str(htags[i])) + len(str(htags[i]))  # Find the start index of the page content
+            end_index = subject.find(str(htags[i + 1]))  # Find the end index of the page content
+            page_content = subject[start_index:end_index].strip()  # Extract the page content between the header tags
+            page_list.append(page_content)  # Append the extracted page content to the list
+
+        # Process the last header separately
+        last_header_text = remove_special_characters(htags[-1].text.strip())
+        head_list.append(last_header_text)  # Append the modified last header text
+        level_list.append(htags[-1].name[1])  # Extract and append the level of the last header
+        start_index = subject.rfind(str(htags[-1])) + len(str(htags[-1]))  # Find the start index of the last page content
+        page_content = subject[start_index:].strip()  # Extract the last page content
+        page_list.append(page_content)  # Append the last page content to the list
+
+    return head_list, level_list, page_list
+
+
+</t>
+<t tx="leo.20230616172601.1">def _remove_h123_attrs(soup):
+
+    """Remove h1-h3 tag attribute
+    """
+
+    tag_order = 0
+    for tag in soup.find_all(['h1', 'h2', 'h3']):
+        if len(tag.contents) == 0:  # If the tag has no contents (text or child elements)
+            if tag_order == 0:
+                tag.string = "First"  # Replace the tag's text with "First" if it's the first tag encountered
+            else:
+                tag.extract()  # Remove the tag if it has no contents and is not the first tag
+        elif len(tag.contents) == 1 and tag.get_text() == "":
+            if tag_order == 0:
+                tag.insert_before(soup.new_tag('h1', 'First'))  # Insert an h1 tag with "First" text before the tag
+            else:
+                tag.replace_with_children()  # Replace the tag with its child elements if it has no text
+        elif len(tag.contents) &gt; 1:
+            if tag_order == 0:
+                tag.insert_before(soup.new_tag('h1', 'First'))  # Insert an h1 tag with "First" text before the tag
+            else:
+                tag.insert_before(soup.new_tag('br'))  # Insert a &lt;br&gt; tag before the tag for visual separation
+                tag.replace_with_children()  # Replace the tag with its child elements
+        tag_order += 1  # Increment the tag order counter
+
+    return soup
+
+</t>
+<t tx="leo.20230616173643.1">def remove_special_characters(text):
+    """
+    Removes special characters from the given text.
+    """
+    # Define the set of special characters to remove
+    special_chars = ['!', '@', '#', '$', '%', '^', '&amp;', '*', '(', ')', '+', '=', '[', ']', '{', '}', '|', '\\', '/',
+                     ':', ';', '&lt;', '&gt;', ',', '.', '?', '`', '~', "'", '"']
+
+    # Remove special characters from the text
+    cleaned_text = ''.join(char for char in text if char not in special_chars)
+
+    return cleaned_text
+</t>
 <t tx="yen.20200710111924.1">def checkMath():
 
     """Use LaTeX Equation rendering
@@ -3525,10 +3652,10 @@ def doAcp():
 </t>
 <t tx="yen.20210704112438.1">@app.route('/favicon.ico')
 def favicon():
-    
+
     """Add favicon
     """
-    
+
     return send_from_directory(_curdir, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 </t>
 <t tx="yen.20210707134934.1"># 因為需要在 download 中導入其他 brython .py 模組, 因此刪除 ]
@@ -3548,20 +3675,20 @@ def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
 password_generator() 函式需要 random 與 string 模組.
 </t>
 <t tx="yen.20210708085937.1">def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
-    
+
     """Generate random password
     """
     return ''.join(random.choice(chars) for _ in range(size))
 
-    
+
 # 定義 password_generator() 後就可以產生 token
 token = password_generator()
 </t>
 <t tx="yen.20210708234039.1">def get_page2(heading, head, edit, get_page_content = None):
-    
+
     """Get page content and replace certain string for static site
     """
-    
+
     not_used_head, level, page = parse_content()
     # 直接在此將 /images/ 換為 ./../images/, /downloads/ 換為 ./../downloads/, 以 content 為基準的相對目錄設定
 
@@ -3692,6 +3819,10 @@ token = password_generator()
 本次 2021.07.10 要將用戶選用的標題中特殊符號予以移除</t>
 <t tx="yen.20210906215717.1">@app.route('/start_static/')
 def start_static():
+
+    """Start local static server
+    """
+
     # build directory
     #os.chdir("./../")
     server_address = ('localhost', static_port)
