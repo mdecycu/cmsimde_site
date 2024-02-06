@@ -174,7 +174,9 @@ def correct_url():
         to replace original request.url under set_admin_css, set_css and set_footer
     """
 
-    url = request.url
+    #url = request.url
+    # fix to work in codespaces
+    url = request.script_root + request.path
     if request.is_secure:
         return url
     else:
