@@ -2575,7 +2575,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
         outstring += '''
 <li><a href="/acpform">acp</a></li>
 <li><a href="/start_static/">SStatic</a></li>
-<li><a href="/">''' + str(static_port) + '''</a></li>
+<li><a href="http://'''+ server_address + '''">''' + str(static_port) + '''</a></li>
 '''
     outstring += '''
 </ul>
@@ -2651,7 +2651,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
             outstring += '''
 <li><a href="/acpform">acp</a></li>
 <li><a href="/start_static/">SStatic</a></li>
-<li><a href="/">''' + str(static_port) + '''</a></li>
+<li><a href="http://'''+ server_address + '''">''' + str(static_port) + '''</a></li>
 '''
     else:
         outstring += '''
