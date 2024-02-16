@@ -100,7 +100,7 @@ except:
 
 @app.route('/acpform')
 def acpform():
-    
+
     """acp form routine
     """
 
@@ -150,7 +150,7 @@ def checkLogin():
         return redirect('/edit_page')
     return redirect('/')
 
- 
+
 def checkMath():
 
     """Use LaTeX Equation rendering
@@ -173,9 +173,8 @@ def correct_url():
     """get the correct url for http and https edit mode
         to replace original request.url under set_admin_css, set_css and set_footer
     """
-
+    # fix the following in order to work in codespaces
     #url = request.url
-    # fix to work in codespaces
     url = request.script_root + request.path
     if request.is_secure:
         return url
@@ -515,7 +514,7 @@ def downloads(path):
 def downloadselect_access_list(files, starti, endi):
 
     """Accompanied with file_selector
-    
+
     與 file_selector 搭配的取檔程式
     """
 
@@ -587,7 +586,7 @@ def editorfoot():
 
 
 def editorhead():
-    
+
     """Add editor head html
     """
 
@@ -1057,11 +1056,11 @@ def get_page(heading, edit):
         else:
             return_content += last_page + " " + next_page + "<br /><h1>" +\
                                       heading + "</h1>" + page_content_list[i] + "<br />" + last_page + " " + next_page
-            
+
         pagedata += "<h"+level[page_order] + ">" + heading + "</h" + level[page_order] + ">" + page_content_list[i]
         # 利用 html_escape() 將 specialchar 轉成只能顯示的格式
         outstring += last_page + " " + next_page + "<br />" + tinymce_editor(directory, html_escape(pagedata), page_order)
-    
+
     # edit=0 for viewpage
     if edit == 0:
         return set_css() + "<div class='container'><nav>" + \
@@ -1144,14 +1143,14 @@ def get_page2(heading, head, edit, get_page_content = None):
                           "</h" + level[page_order] + ">" + page_content_list[i]
         # 利用 html_escape() 將 specialchar 轉成只能顯示的格式
         outstring += last_page + " " + next_page + "<br />" + tinymce_editor(directory, html_escape(pagedata), page_order)
-    
+
     # edit=0 for viewpage
     if edit == 0:
         return set_css2() + '''<div class='container'><nav>
         '''+ \
         directory + "<div id=\"tipue_search_content\">" + return_content + \
         '''</div>
-        
+
     <!-- footer -->
       <div class="container">
         <div class="row pt-3 mx-auto">
@@ -1163,7 +1162,7 @@ def get_page2(heading, head, edit, get_page_content = None):
         </div>
       </div>
     <!-- for footer -->
-    
+
         </div> <!-- for site wrap -->
             <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
             <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
@@ -1213,7 +1212,7 @@ def get_wan_address():
 
     """get wide area network address
     """
-  
+
     try:
         ipv4_address = get_wan_ipv4_address()
         if ipv4_address:
@@ -1344,17 +1343,17 @@ def image_list():
             item_per_page = 10
         else:
             item_per_page = request.args.get('item_per_page')
-        
+
         # only use lower case keyword to search filename
         session.pop('image_keyword', "")
-        
+
         if not request.args.get('keyword'):
             keyword = ""
         else:
             keyword = request.args.get('keyword')
-        
+
         session['image_keyword'] = keyword
-        
+
         # turn all english char of the filenames into lower cases
         origFiles = os.listdir(image_dir)
         files = []
@@ -1371,7 +1370,7 @@ def image_list():
             # check if lowerFilename contains keyword
             if str(keyword) in lowerFilename:
                 files.append(filename) 
-        
+
     files.sort()
     total_rows = len(files)
     totalpage = math.ceil(total_rows/int(item_per_page))
@@ -1425,7 +1424,7 @@ def image_list():
         else:
             outstring += "<br /><br />"
             outstring += imagelist_access_list(files, starti, total_rows) + "<br />"
-        
+
         if int(page) > 1:
             outstring += "<a href='"
             outstring += "image_list?&amp;page=1&amp;item_per_page=" + \
@@ -1728,7 +1727,7 @@ function keywordSearch(){
         else:
             outstring += "<br /><br />"
             outstring += loadlist_access_list(files, starti, total_rows, filedir) + "<br />"
-        
+
         if int(page) > 1:
             outstring += "<a href='"
             outstring += "/"+filedir + "?&amp;page=1&amp;item_per_page=" + str(item_per_page)+"&amp;keyword=" + str(session.get('search_keyword'))
@@ -1857,10 +1856,10 @@ def local_blog():
 
 @app.route('/markdown_action', methods=['POST'])
 def markdown_action():
-  
+
     """Action for markdown_form
     """
-  
+
     if isAdmin():
         import html
         markdown_dir = _curdir + "/markdown/"
@@ -2130,7 +2129,7 @@ def parse_content():
 
 
 def remove_special_characters(text):
-    
+
     """Removes special characters from the given text.
     """
     # Define the set of special characters to remove
@@ -2143,7 +2142,7 @@ def remove_special_characters(text):
 
 
 def render_menu(head, level, page, sitemap=0):
-    
+
     """允許使用者在 h1 標題後直接加上 h3 標題, 或者隨後納入 h4 之後作為標題標註
     """
 
@@ -2216,7 +2215,7 @@ def render_menu2(head, level, page, sitemap=0):
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
+
             <header class="site-navbar py-4 bg-white" role="banner">
               <div class="container">
                 <div class="row align-items-center">
@@ -2233,7 +2232,7 @@ def render_menu2(head, level, page, sitemap=0):
                   <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
     '''
-    
+
     # 從 level 數列第一個元素作為開端, 第一個一定非 level 1 不可
     current_level = level[0]
     # 若是 sitemap 則僅列出樹狀架構而沒有套用 css3menu 架構
@@ -2326,7 +2325,7 @@ def render_menu2(head, level, page, sitemap=0):
 
             </div>
           </div>
-          
+
         </header>
     '''
     return directory
@@ -2494,16 +2493,16 @@ def send_file(path):
 
     """Send file function
     """
-    
+
     return app.send_static_file(static_dir + path)
 
 
 @app.route('/images/<path:path>')
 def send_images(path):
-    
+
     """Send image files
     """
-    
+
     return send_from_directory(_curdir + "/images/", path)
 
 
@@ -2687,7 +2686,7 @@ def set_css2():
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
         <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
-        
+
         <style type='text/css'>
             .site-section {
             background-color: #FFFF;
@@ -2885,7 +2884,7 @@ def ssavePage():
 @app.route('/start_static/')
 def start_static():
     """Start local static server in http"""
-    
+
     if isAdmin():
         server_address = get_wan_address() or 'localhost'
         server_port = static_port
@@ -3023,7 +3022,7 @@ def tinymce_editor(menu_input=None, editor_content=None, page_order=None):
         }
         //else: user is allowed to leave without a warning dialog
         });
-        
+
         function tempAlert(msg,duration)
             {
              var el = document.createElement("div");
@@ -3034,14 +3033,14 @@ def tinymce_editor(menu_input=None, editor_content=None, page_order=None):
              },duration);
              document.body.appendChild(el);
             }
-        
+
         function save_all(){
             tinymce.activeEditor.execCommand('mceSave');
         }
-        
+
         function save_all_data(form) {
                 var page_content = $('textarea#page_content').val();
-                
+
                 $.ajax({
                     type: "POST",
                     url: "/savePage",
@@ -3101,7 +3100,7 @@ def tinymce_editor(menu_input=None, editor_content=None, page_order=None):
         }
         //else: user is allowed to leave without a warning dialog
         });
-        
+
         function tempAlert(msg,duration)
             {
              var el = document.createElement("div");
@@ -3112,24 +3111,24 @@ def tinymce_editor(menu_input=None, editor_content=None, page_order=None):
              },duration);
              document.body.appendChild(el);
             }
-            
+
         // default action is "save"
         var action ="save";
-        
+
         function cssave(){
             action = "csave";
             tinymce.activeEditor.execCommand('mceSave');
         }
-        
+
         function ssave(){
             action = "save";
             tinymce.activeEditor.execCommand('mceSave');
         }
-        
+
         function save_data(form) {
                 var page_content = $('textarea#page_content').val();
                 var page_order = $('#page_order').val();
-                
+
                 $.ajax({
                     type: "POST",
                     url: "/ssavePage",
@@ -3165,7 +3164,7 @@ def tinymce_editor(menu_input=None, editor_content=None, page_order=None):
                     head[page_order] + \
                     ''''" value='viewpage'></form></section></body></html>'''
     return outstring
-    
+
 def unique(items):
 
     """Make items element unique
