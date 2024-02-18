@@ -5,63 +5,63 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./</loc>
-<lastmod>2024-02-14T09:41:48-00:00</lastmod>
+<lastmod>2024-02-18T01:42:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./archives.html</loc>
-<lastmod>2024-02-14T09:41:48-00:00</lastmod>
+<lastmod>2024-02-18T01:42:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tags.html</loc>
-<lastmod>2024-02-14T09:41:48-00:00</lastmod>
+<lastmod>2024-02-18T01:42:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./categories.html</loc>
-<lastmod>2024-02-14T09:41:48-00:00</lastmod>
+<lastmod>2024-02-18T01:42:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./pages/about/</loc>
-<lastmod>2024-02-14T01:30:17+08:00</lastmod>
+<lastmod>2024-02-18T01:20:51+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./2020-Fall-Intro-to-computer-programming.html</loc>
-<lastmod>2024-02-14T01:30:17+08:00</lastmod>
+<loc>./2024-Spring-w1-blog-tutorial.html</loc>
+<lastmod>2024-02-18T01:42:14+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/misc.html</loc>
-<lastmod>2024-02-14T01:30:17+08:06</lastmod>
+<loc>./category/w1.html</loc>
+<lastmod>2024-02-18T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/2020fallcp.html</loc>
-<lastmod>2024-02-14T01:30:17+08:06</lastmod>
+<loc>./tag/wang-zhi-bian-xie.html</loc>
+<lastmod>2024-02-18T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./author/yen.html</loc>
-<lastmod>2024-02-14T01:30:17+08:06</lastmod>
+<loc>./author/kmol.html</loc>
+<lastmod>2024-02-18T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
