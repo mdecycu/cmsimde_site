@@ -1,14 +1,14 @@
 Title: About
 
-# cmsimde 內容管理系統
+## CMSimfly 內容管理網誌
 
-倉儲: <a href="https://github.com/mdecycu/cmsimde_site">https://github.com/mdecycu/cmsimde_site</a>
+課程倉儲: <a href="https://github.com/chiamingyen/cmsimfly">https://github.com/chiamingyen/cmsimfly</a>
 
-網站: <a href="https://mde.tw/cmsimde_site/">https://mde.tw/cmsimde_site/</a>
+內容管理: <a href="https://chiamingyen.github.io/cmsimfly/">https://chiamingyen.github.io/cmsimfly/</a>
 
-簡報: <a href="https://mde.tw/cmsimde_site/reveal">https://mde.tw/cmsimde_site/reveal</a>
+課程投影片: <a href="https://chiamingyen.github.io/cmsimfly/reveal">https://chiamingyen.github.io/cmsimfly/reveal</a>
 
-網誌: <a href="https://mde.tw/cmsimde_site/blog">https://mde.tw/cmsimde_site/blog</a>
+課程網誌: <a href="https://chiamingyen.github.io/cmsimfly/blog">https://chiamingyen.github.io/cmsimfly/blog</a>
 
 
 
