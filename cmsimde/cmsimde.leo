@@ -9138,7 +9138,7 @@ def send_static():
 
     """Set css for admin
     """
-    
+
     server_ip = init.Init.ip
     # need to check for IPv4 or IPv6
     # 根據 IP 地址自動選擇 address family

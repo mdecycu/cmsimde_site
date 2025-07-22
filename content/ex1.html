@@ -2,7 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -142,13 +142,48 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Reeborg.html'>Next</a> >> Reeborg<br /><h1>About</h1>
-<p>可攜程式套件:</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/portable_2026.7z">portable_2026.7z</a> (387MB)</p>
-<p style="padding-left: 60px;">解開壓縮後，雙點擊 start_miniconda3.bat 啟動可攜系統，雙點擊 stop.bat 關閉可攜系統。</p>
-<p style="padding-left: 60px;">可攜系統啟動後，在命令列執行 conda activate y:\envs\cmsimde 可進入能執行 CMSiMDE 的環境。</p>
-<p style="padding-left: 60px;">若希望可攜系統啟動直接進入 cmsimde 環境，可將 start_miniconda3.bat 檔案中第 98 行: call "%CONDA_ROOT%\Scripts\activate.bat" %ENV_NAME% 更換為 call "%CONDA_ROOT%\Scripts\activate.bat" %Disk%:\envs\cmsimde</p>
-<br /> <a href='Reeborg.html'>Next</a> >> Reeborg</div>
+    <div id="tipue_search_content">Reeborg << <a href='Reeborg.html'>Previous</a> <a href='Otto_ninja.html'>Next</a> >> Otto_ninja<br /><h1>ex1</h1>
+<p><a href="https://mde.tw/cp2025/reeborg?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest1.json&amp;editor=python/harvest1.py">https://mde.tw/cp2025/reeborg?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest1.json&amp;editor=python/harvest1.py</a> 是已知的機器人採收紅蘿蔔的程式，經由以下與 Copilot 的對話，希望透過 Python Class 的編寫解決特定範圍農作物採收的程式。</p>
+<p>問句:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">以下是 Reeborg 一個用來採收紅蘿蔔的程式, 目前位於 (3,3) 到 (8,8) 的區域中各座標點, 各有一個紅羅蔔等待採收, 現在想要建立一個 harvest() class, 可以利用 (3,3), (8,8)作為標定有農作物必須採收的兩個區域對角點座標, 而程式可以利用此一 harvest 類別生成案例完成採收的任務: def turn(int):
+    for i in range(int):
+        turn_left()
+        
+def new_move(int):
+    for i in range(int):
+        move()
+        
+def harvest_one_row():
+    while object_here():
+        take()
+    else:
+        move()
+# move to the field
+new_move(2)
+turn_left()
+new_move(2)
+
+for i in range(3):
+    while is_facing_north():
+        for i in range(6):
+            harvest_one_row()
+        for i in range(2):
+            turn(3)
+            move() 
+    else:
+        for i in range(6):
+            harvest_one_row()
+        for i in range(2):
+            turn_left()
+            move()</pre>
+<p>AI 回答: <a href="https://mde.tw/cp2025/reeborg?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest1.json&amp;editor=python/harvest1_class_ex1.py">https://mde.tw/cp2025/reeborg?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest1.json&amp;editor=python/harvest1_class_ex1.py</a> </p>
+<p>進一步要求:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">請在類別中加上一個採收方向的參數, 內建變數是 horizontal 採收, 也就是由西邊往東邊的水平方向進行採收, 但若該方向變數設為 vertical 則會由南邊往北的所謂垂直方向進行採收</pre>
+<p>AI 回應: <a href="https://mde.tw/cp2025/reeborg?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest1.json&amp;editor=python/harvest1_class_ex2.py">https://mde.tw/cp2025/reeborg?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest1.json&amp;editor=python/harvest1_class_ex2.py </a> </p>
+<p>延伸到採收 harvest2 農田: <a href="https://mde.tw/cp2025/reeborg/?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest2.json&amp;editor=python/harvest1_class_ex1.py">https://mde.tw/cp2025/reeborg/?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest2.json&amp;editor=python/harvest1_class_ex1.py</a> </p>
+<p>但卻沒能套用到 harvest3 農田: <a href="https://mde.tw/cp2025/reeborg/?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest3.json&amp;editor=python/harvest1_class_ex1.py">https://mde.tw/cp2025/reeborg/?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest3.json&amp;editor=python/harvest1_class_ex1.py</a> </p>
+<p>而必須要在每一個座標點留下或放入一個紅蘿蔔: <a href="https://mde.tw/cp2025/reeborg/?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest3.json&amp;editor=python/harvest1_class_ex3.py">https://mde.tw/cp2025/reeborg/?lang=en&amp;mode=python&amp;menu=worlds/menus/select_collection_en.json&amp;name=Alone&amp;url=worlds/tutorial_en/harvest3.json&amp;editor=python/harvest1_class_ex3.py </a> </p>
+<br />Reeborg << <a href='Reeborg.html'>Previous</a> <a href='Otto_ninja.html'>Next</a> >> Otto_ninja</div>
         
     <!-- footer -->
       <div class="container">

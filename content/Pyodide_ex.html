@@ -2,7 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -142,13 +142,19 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Reeborg.html'>Next</a> >> Reeborg<br /><h1>About</h1>
-<p>可攜程式套件:</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/portable_2026.7z">portable_2026.7z</a> (387MB)</p>
-<p style="padding-left: 60px;">解開壓縮後，雙點擊 start_miniconda3.bat 啟動可攜系統，雙點擊 stop.bat 關閉可攜系統。</p>
-<p style="padding-left: 60px;">可攜系統啟動後，在命令列執行 conda activate y:\envs\cmsimde 可進入能執行 CMSiMDE 的環境。</p>
-<p style="padding-left: 60px;">若希望可攜系統啟動直接進入 cmsimde 環境，可將 start_miniconda3.bat 檔案中第 98 行: call "%CONDA_ROOT%\Scripts\activate.bat" %ENV_NAME% 更換為 call "%CONDA_ROOT%\Scripts\activate.bat" %Disk%:\envs\cmsimde</p>
-<br /> <a href='Reeborg.html'>Next</a> >> Reeborg</div>
+    <div id="tipue_search_content">Pyodide << <a href='Pyodide.html'>Previous</a> <br /><h1>Pyodide_ex</h1>
+<p><a href="https://mde.tw/cp2025/content/Pyodide.html?src=https://gist.githubusercontent.com/mdecycu/ec4bb35dd0769e7a83d2a9fa57878a67/raw/f3d75d08f2b90f4470342e91ee1e5c36b5f950bf/pyodide_robot_ex1.py">Pyodide 機器人巡邏</a></p>
+<p>Pyodide 導入客製化模組:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">const code = `
+# 定義一個模組內容
+def hello():
+    print("Hello from custom module!")
+`;
+pyodide.runPython(code);
+</pre>
+<p><a href="https://mde.tw/cp2025/content/Pyodide.html?src=https://gist.githubusercontent.com/mdecycu/ec4bb35dd0769e7a83d2a9fa57878a67/raw/3ed6869dcd7312254513ca507de17945e15a9b6f/box_max_volume_short.py">Volume_max_pyodide_de_short.py</a></p>
+<p><a href="https://mde.tw/cp2025/content/Pyodide.html?src=https://gist.githubusercontent.com/mdecycu/ec4bb35dd0769e7a83d2a9fa57878a67/raw/3ed6869dcd7312254513ca507de17945e15a9b6f/box_volume_max_pyodide_de.py">Volume_max_pyodide_de.py</a></p>
+<p></p><br />Pyodide << <a href='Pyodide.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
